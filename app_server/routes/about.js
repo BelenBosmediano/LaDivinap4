@@ -8,4 +8,5 @@ const crtlAbout = require('../controllers/about');
 
 router.get('/',crtlAbout.about);
 
+
 module.exports = router;

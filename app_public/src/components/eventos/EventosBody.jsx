@@ -10,7 +10,7 @@ const EventosBody = () => {
         {isLoading && <div className="spinner-borde"></div>}
           {events.map((event) => (
             <div className="col-md-4" key={event._id}>
-              <div className="card mb-4">
+              <div className="card mb-4 text-center">
                 <img src={`/uploads/${event.imagen}`} className="card-img-top" alt="imagen evento" />
                 <p>{event.nombre}</p>
                 <p>{event.genero}</p>
@@ -21,7 +21,6 @@ const EventosBody = () => {
             </div>
           ))}
         </div>
-        <a href="/evento2/create/event-form" className="btn btn-primary btn-lg">Crear Evento</a>
       </div>
     </>
   );

@@ -1,23 +1,25 @@
 extends layout
 
 block content
+
     //  Navbar Start 
     .container-fluid.p-0.nav-bar
-        nav.navbar.navbar-expand-lg.bg-none.navbar-dark.py-3
-            a.navbar-brand.px-lg-4.m-0(href="index.html")
-                h1.m-0.display-4.text-uppercase.text-white La Divina
-            button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarCollapse")
-                span.navbar-toggler-icon
-            .collapse.navbar-collapse.justify-content-between#navbarCollapse
-                .navbar-nav.ml-auto.p-4
-                    a.nav-item.nav-link(href="/") Home 
-                    a.nav-item.nav-link.active(href="/about") About us 
-                    .nav-item.dropdown
-                        a.nav-link.dropdown-toggle(href="#", data-toggle="dropdown") Eventos 
-                        .dropdown-menu.text-capitalize
-                            a.dropdown-item(href="evento2/create/event-form") Crear evento
-                            a.dropdown-item(href="/evento2") Editar eventos
-                    a.nav-item.nav-link(href="/registro/login") Login 
+      nav.navbar.navbar-expand-lg.bg-none.navbar-dark.py-3
+        a.navbar-brand.px-lg-4.m-0(href="index.html")
+          h1.m-0.display-4.text-uppercase.text-white La Divina
+        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarCollapse")
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse.justify-content-between#navbarCollapse
+          .navbar-nav.ml-auto.p-4
+            a.nav-item.nav-link(href="/") Home 
+            a.nav-item.nav-link.active(href="/about") About us 
+            .nav-item.dropdown
+              a.nav-link.dropdown-toggle(href="#", data-toggle="dropdown") Eventos 
+              .dropdown-menu.text-capitalize
+                a.dropdown-item(href="/eventos") Eventos
+                a.dropdown-item(href="evento2/create/event-form") Crear evento
+                a.dropdown-item(href="/evento2") Editar eventos
+            a.nav-item.nav-link(href="/registro/login") Login 
     //  Navbar End 
     //  Page Header Start 
     .container-fluid.page-header.mb-5.position-relative.overlay-bottom
@@ -92,20 +94,4 @@ block content
         | Designed by 
         a.font-weight-bold(href="#") JoseM - BelenB
     //  Footer End
-    //  Back to Top 
-    a.btn.btn-lg.btn-primary.btn-lg-square.back-to-top(href="#")
-    i.fa.fa-angle-double-up
-    //  JavaScript Libraries 
-    script(src="https://code.jquery.com/jquery-3.4.1.min.js")
-    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js")
-    script(src="lib/easing/easing.min.js")
-    script(src="lib/waypoints/waypoints.min.js")
-    script(src="lib/owlcarousel/owl.carousel.min.js")
-    script(src="lib/tempusdominus/js/moment.min.js")
-    script(src="lib/tempusdominus/js/moment-timezone.min.js")
-    script(src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")
-    //  Contact Javascript File 
-    script(src="mail/jqBootstrapValidation.min.js")
-    script(src="mail/contact.js")
-    //  Template Javascript 
-    script(src="js/main.js")
+    

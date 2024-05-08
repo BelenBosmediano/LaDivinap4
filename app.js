@@ -32,13 +32,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname,'app_public', 'build')));
 app.use(express.static(path.join(__dirname, "public")));
 
-
-app.get('/eventos', function (req, res) {
-  res.sendFile(path.join(__dirname, 'app_public','build' ,'index.html'));
-});
 
 app.use("/", indexRouter);
 app.use("/perfil", perfilRouter);
@@ -48,6 +43,11 @@ app.use("/perfilusu", perfilusuRouter);
 app.use("/about",aboutRouter);
 app.use("/registro",registroRourter);
 
+app.use(express.static(path.join(__dirname,'app_public', 'build')));
+
+app.get('/eventos', function (req, res) {
+  res.sendFile(path.join(__dirname, 'app_public','build' ,'index.html'));
+});
 
 
 //REST API

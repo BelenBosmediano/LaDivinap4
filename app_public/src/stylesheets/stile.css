@@ -1,0 +1,23 @@
+
+.eventos-page {
+    font-family: sans-serif; /* Cambia la fuente según tu preferencia */
+}
+
+
+.display-1 {
+    background-color: #1d0f0f; /* Cambia el color de fondo principal */
+    color: #ffffff; /* Cambia el color del texto */
+}
+
+.container {
+    padding: 20px;
+    background-color: #946e07; /* Cambia el color de fondo principal */
+}
+
+.imagen-evento {
+    width: 200px; /* Ancho deseado */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+
+  
+  /* Puedes agregar más estilos según sea necesario */
