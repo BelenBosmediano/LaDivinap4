@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .event-page
+    .event-header
+      h1= eventData.nombre
+      img(src='/uploads/' + eventData.imagen, alt="Event Image", class="w-25 img-fluid")
+    .event-description
+      p= eventData.detalle
+    .event-actions
+      form(action="/metodopag/buy-tickets" method="post")
+        input(type="hidden", name="id", value=eventData._id)
+        label(for="cantidad") Cantidad de Tickets
+        input(type="number", name="cantidad", id="cantidad", min="1", max="10", required)
+        button(type="submit") Comprar Tickets

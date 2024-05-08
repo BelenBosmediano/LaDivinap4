@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  // Navbar Start
+  .container-fluid.p-0.nav-bar
+    nav.navbar.navbar-expand-lg.bg-none.navbar-dark.py-3
+      a.navbar-brand.px-lg-4.m-0(href="index.html")
+        h1.m-0.display-4.text-uppercase.text-primary La Divina
+      button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarCollapse")
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse.justify-content-between#navbarCollapse
+        .navbar-nav.ml-auto.p-4
+          a.nav-item.nav-link.text-dark(href="/") Home 
+          a.nav-item.nav-link.text-dark(href="about") About us 
+          .nav-item.dropdown
+            a.nav-link.active.dropdown-toggle(href="#", data-toggle="dropdown") Eventos 
+            .dropdown-menu.text-capitalize
+              a.dropdown-item(href="evento2/create/event-form") Crear evento
+              a.dropdown-item(href="/evento2") Editar eventos
+          a.nav-item.nav-link(href="menu.html") ........   
+  // Navbar End 
+  //  Menu Start 
+  .container-fluid.pt-5
+   .container.pt-5
+    .row.justify-content-center
+      .col-md-6.text-center
+        .profile-card.shadow.p-5.rounded
+          img.profile-picture.img-fluid.rounded-circle(src="images/artista1.jpg", alt="Profile Picture", style="width: 200px; height: 200px;")
+          h2.mt-4 Dj Marlon
+          p.text-muted(style="font-size: 18px;") Me gusta lo que hago, especialmente hacer feliz a la gente
+  //  Menu End 
+
+  // Event Edit Section
+  .container.pt-5
+    .row.justify-content-center
+      .col-md-8.text-center
+        .event-edit-box.shadow.p-4.rounded
+          form(action=`/evento2/evento/edit/${event._id}`, method="post")
+            label(for="nombre") Nombre:
+            input.form-control(type="text", id="nombre", name="nombre", required value=`${event.nombre}`)
+
+            label(for="genero") Género: 
+            input.form-control(type="text", id="genero", name="genero", required value=`${event.genero}`)
+            
+            label(for="ubicacion") Ubicación:
+            input.form-control(type="text", id="ubicacion", name="ubicacion", required value=`${event.ubicacion}`)
+
+            label(for="fecha") Fecha:
+            input.form-control(type="date", id="fecha", name="fecha", required value=`${event.fecha}`)
+
+            label(for="detalle") Detalle:
+            textarea.form-control(id="detalle", name="detalle", rows="4", required)= `${event.detalle}`
+
+            label(for="precio") Precio:
+            input.form-control(type="number", id="precio", name="precio", required value=`${event.precio}`)
+
+            button.btn.btn-primary(type="submit") Enviar
+

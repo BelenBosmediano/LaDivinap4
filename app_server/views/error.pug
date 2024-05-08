@@ -1,0 +1,107 @@
+extends layout
+
+block content
+    //  Navbar Start 
+    .container-fluid.p-0.nav-bar
+        nav.navbar.navbar-expand-lg.bg-none.navbar-dark.py-3
+                a.navbar-brand.px-lg-4.m-0(href="index.html")
+                    h1.m-0.display-4.text-uppercase.text-white La Divina
+                button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarCollapse")
+                    span.navbar-toggler-icon
+                .collapse.navbar-collapse.justify-content-between#navbarCollapse
+                    .navbar-nav.ml-auto.p-4
+                        a.nav-item.nav-link(href="/") Home
+                        a.nav-item.nav-link(href="/about") About us
+                        .nav-item.dropdown
+                            a.nav-link.dropdown-toggle.active(href="#", data-toggle="dropdown") Eventos
+                            .dropdown-menu.text-capitalize
+                                a.dropdown-item.active(href="evento2/create/event-form") Crear evento
+                                a.dropdown-item(href="/evento2") Editar evento
+                        a.nav-item.nav-link(href="/registro/login") Login
+    //  Navbar End
+    //  Page Header Start 
+    .container-fluid.page-header.mb-5.position-relative.overlay-bottom
+        .d-flex.flex-column.align-items-center.justify-content-center.pt-0.pt-lg-5(style="min-height: 400px")
+            h1.display-4.mb-3.mt-0.mt-lg-5.text-white.text-uppercase Inicio de Sesion
+            .d-inline-flex.mb-lg-5
+                p.m-0.text-white Registrate si no tienes cuenta
+    //  Page Header End 
+    //Start de Inicio de Sesion
+    .container-fluid.pt-5
+    .container.pt-5
+      .container
+        h1 Formulario de Inicio de Sesión
+
+        // Formulario de inicio de sesión
+        form(action="/registro/login/sign" method="POST")
+          // Email o nombre de usuario
+          .mb-3
+            label(for="mail") Correo electrónico o nombre de usuario
+            input#usernameOrEmail.form-control(type="text" name="mail" placeholder="Ingresa tu correo o usuario" required)
+
+          // Contraseña
+          .mb-3
+            label(for="password") Contraseña 
+            input#password.form-control(type="password" name="password" placeholder="Ingresa tu contraseña" required)
+
+          // Botón de inicio de sesión
+          button.btn.btn-primary(type="submit") Iniciar sesión
+
+          // Boton de registro
+          .mb-3
+          button.btn.btn-primary(type="button" onclick="window.location.href='/registro'") Registro
+    //End de Inicio de Sesion
+    //  Footer Start 
+    .container-fluid.footer.text-white.mt-5.pt-5.px-0.position-relative.overlay-top
+     .row.mx-0.pt-5.px-sm-3.px-lg-5.mt-4
+      .col-lg-3.col-md-6.mb-5
+        h4.text-white.text-uSppercase.mb-4(style="letter-spacing: 3px;") Redes Sociales
+        p No te olvides de seguirnos en nuestras redes sociales :D
+        .d-flex.justify-content-start
+          a.btn.btn-lg.btn-outline-light.btn-lg-square.mr-2(href="#")
+            i.fab.fa-twitter
+          a.btn.btn-lg.btn-outline-light.btn-lg-square.mr-2(href="#")
+            i.fab.fa-facebook-f
+          a.btn.btn-lg.btn-outline-light.btn-lg-square.mr-2(href="#")
+            i.fab.fa-linkedin-in
+          a.btn.btn-lg.btn-outline-light.btn-lg-square(href="#")
+            i.fab.fa-instagram
+      .col-lg-3.col-md-6.mb-5
+        h4.text-white.text-uppercase.mb-4(style="letter-spacing: 3px;") Nuestro Horario
+          h6.text-white.text-uppercase Lunes - Sábado
+          p 8.00 AM - 8.00 PM
+          h6.text-white.text-uppercase Domingos
+          p 2.00 PM - 8.00 PM
+      .col-lg-3.col-md-6.mb-5
+        h4.text-white.text-uppercase.mb-4(style="letter-spacing: 3px;") Consultas
+        p Si tienes dudas o preguntas, escribenos! 
+        p ladivina1@gmail.com
+     .container-fluid.text-center.text-white.border-top.mt-4.py-4.px-sm-3.px-md-5(style="border-color: rgba(256, 256, 256, .1) !important;")
+      p.mb-2.text-white
+        | Copyright © 
+        a.font-weight-bold(href="#") USFQ
+        | . All Rights Reserved.
+      p.m-0.text-white
+        | Designed by 
+        a.font-weight-bold(href="#") JoseM - BelenB
+    //  Footer End
+
+    //  Back to Top 
+    a.btn.btn-lg.btn-primary.btn-lg-square.back-to-top(href="#")
+    i.fa.fa-angle-double-up
+    //  JavaScript Libraries 
+    script(src="https://code.jquery.com/jquery-3.4.1.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js")
+    script(src="lib/easing/easing.min.js")
+    script(src="lib/waypoints/waypoints.min.js")
+    script(src="lib/owlcarousel/owl.carousel.min.js")
+    script(src="lib/tempusdominus/js/moment.min.js")
+    script(src="lib/tempusdominus/js/moment-timezone.min.js")
+    script(src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")
+    //  Contact Javascript File 
+    script(src="mail/jqBootstrapValidation.min.js")
+    script(src="mail/contact.js")
+    //  Template Javascript 
+    script(src="js/main.js")
+        
+    

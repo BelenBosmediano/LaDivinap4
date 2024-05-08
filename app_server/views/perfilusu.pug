@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .profile-container
+    .profile-picture
+      img(src="profile-picture-url", alt="Profile picture")
+    .profile-info
+      h2.username Usuario
+      p.user-description Presentacion
+      form(action="/profile/seguir", method="post")
+        button.edit-profile-button Seguir
+
+
