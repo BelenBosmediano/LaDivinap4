@@ -16,7 +16,7 @@ if (process.platform === 'win32') {
     });
 }
 
-const dbURI = 'mongodb://localhost/dw3_202320_users';
+const dbURI = 'mongodb+srv://belenchisbosme2003:patito@cluster0.ai72lfs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(dbURI,{});
 

@@ -21,7 +21,7 @@ const EventosBody = () => {
             </div>
           ))}
         </div>
-        <a href="http://localhost:5000/evento2/create/event-form" className="btn btn-primary btn-lg">Crear Evento</a>
+        <a href="/evento2/create/event-form" className="btn btn-primary btn-lg">Crear Evento</a>
       </div>
     </>
   );
