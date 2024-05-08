@@ -7,7 +7,7 @@ let apiOptions = {
 
 
 if (process.env.NODE_ENV === 'production') {
-    apiOptions.server = 'https://ladivina-69d1bc0b8c8c.herokuapp.com/'
+    apiOptions.server = 'https://ladivinap4-604b84fbbc08.herokuapp.com/'
 } else {
     apiOptions.server = 'http://localhost:5000/'
 }
