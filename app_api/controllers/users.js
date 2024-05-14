@@ -15,12 +15,9 @@ const login = async (req, res) => {
   }
 
   try {
-    if (await bcryptjs.compare(req.body.password, user.password)) {
-      const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
-      res.header("auth-token", token).status(200).json({
-        message: "Login success",
-        token: token,
-      });
+    if (bcryptjs.compareSync(req.body.password, user.password)) {
+      const token = jwt.sign({ email: user.mail }, process.env.SECRET_KEY);
+      res.status(200).json({user: user, token: token});
     } else {
       res.status(204).json({
         message: "Password not match",

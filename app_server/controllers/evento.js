@@ -27,10 +27,9 @@ if (process.env.NODE_ENV === 'production') {
 const eventos = (req, res, next) => {
   const path = 'api/events';
   axios.get(`${apiOptions.server}${path}`).then((response) => {
-    console.log(response.data);
-    console.log(response.status);
+
     if (response.status === 200) {
-      res.render('eventos' , { eventos: response.data });
+      res.render('eventos' , { eventos: response.data, logedIn: req.session.token ? true : false });
     } else {
       console.log(response.status);
     }
@@ -51,7 +50,7 @@ const getSingleEvent = (req, res, next) => {
   const path = `api/events/${req.params.eventid}`;
   axios.get(`${apiOptions.server}${path}`).then((response) => {
     if (response.status === 200) {
-      res.render('evento' , { evento: response.data });
+      res.render('evento' , { evento: response.data, logedIn: req.session.token ? true : false});
     } else {
       console.log(response.status);
     }
@@ -64,7 +63,7 @@ const renderForm = (req, res, body) => {
   const path = `api/events/${req.params.eventid}`;
   axios.get(`${apiOptions.server}${path}`).then((response) => {
     if (response.status === 200) {
-      res.render('formulario' , { event: response.data });
+      res.render('formulario' , { event: response.data, logedIn: req.session.token ? true : false});
     } else {
       console.log(response.status);
     }
@@ -97,12 +96,11 @@ const editEvent = (req, res, next) => {
 };
 
 const renderFormCreate = (req, res, body) => {
-  res.render('creareventos');
+  res.render('creareventos', { logedIn: req.session.token ? true : false });
 }
 
 const createEvent = async (req, res, next) => {
   try {
-    console.log("🚀 ~ createEvent ~ req:", req)
     const path = 'api/events';
     const postdata = {
       nombre: req.body.nombre,

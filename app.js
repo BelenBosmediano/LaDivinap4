@@ -5,6 +5,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require('cors');
+const session = require('express-session');
 
 
 // incorpora el modelo
@@ -16,7 +17,6 @@ const indexRouter = require("./app_server/routes/index");
 const perfilRouter = require("./app_server/routes/perfil");
 const eventoRouter = require("./app_server/routes/evento");
 const metodopagRouter = require("./app_server/routes/metodopag");
-const perfilusuRouter = require("./app_server/routes/perfilusu");
 const aboutRouter = require("./app_server/routes/about");
 const registroRourter = require ("./app_server/routes/registro");
 
@@ -26,6 +26,16 @@ const app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "app_server", "views"));
 app.set("view engine", "pug");
+
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: process.env.NODE_ENV === 'production' ? true : false,
+    maxAge: 60000 * 60000 
+  }
+}));
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -39,7 +49,6 @@ app.use("/", indexRouter);
 app.use("/perfil", perfilRouter);
 app.use("/evento2", eventoRouter);
 app.use("/metodopag", metodopagRouter);
-app.use("/perfilusu", perfilusuRouter);
 app.use("/about",aboutRouter);
 app.use("/registro",registroRourter);
 

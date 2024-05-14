@@ -1,4 +1,4 @@
-const { response } = require("express");
+const axios = require('axios');
 
 const apiOptions = {
   server: "http://localhost:5000/"
@@ -34,6 +34,23 @@ exports.purchaseTickets = (req, res) => {
 
 
 
-module.exports.gethome = (req, res) => {
-  res.render('index');
+const gethome = async (req, res) => {
+  try {
+    const path = 'api/events';
+    const response = await axios.get(`${apiOptions.server}${path}`);
+    let events = [];
+    for (let i = 0; i < 4; i++) {
+      events.push(response.data[i]);
+    }
+    console.log("🚀 ~ events:", events)
+    res.render('index', {logedIn: req.session.token ? true : false, events: events});
+    
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send(error.message);
+  }
 };  
+
+module.exports = {
+  gethome
+};

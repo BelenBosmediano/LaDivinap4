@@ -17,6 +17,7 @@ const EventosBody = () => {
                 <p>{event.ubicacion}</p>
                 <p>{event.precio}</p>
                 <p>{event.fecha}</p>
+                <a href={`/evento2/evento/${event._id}`} className="btn btn-primary">Ver evento</a>
               </div>
             </div>
           ))}

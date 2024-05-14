@@ -17,7 +17,7 @@ const registro = async (req, res, next)=>{
         const url = `${apiOptions.server}${path}`;
         const data = req.body;
         const response = await axios.post(url, data);
-        res.redirect('/registro');
+        res.redirect('/registro/login');
 }
 
 //login
@@ -30,12 +30,31 @@ const login = async (req, res, next)=>{
     const url = `${apiOptions.server}${path}`;
     const data = req.body;
     const response = await axios.post(url, data);
-
         if(response.status == 204){
             res.redirect('/registro');
         }else{
-            res.redirect('/');
+            try {
+                req.session.token = response.data.token;
+                req.session.mail = response.data.user.mail;
+                req.session.userid = response.data.user._id;
+                console.log(req.session.mail);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                res.redirect('/');
+            }
         }
+
+}
+
+const logout = (req, res, next)=>{
+    req.session.destroy( (err) => {
+        if(err) {
+            return console.log(err);
+        }
+        res.redirect('/');
+    }
+)
 
 }
 
@@ -44,5 +63,6 @@ module.exports ={
     renderRegistro, //registro
     registro,
     renderlogin,
-    login
+    login,
+    logout
 }

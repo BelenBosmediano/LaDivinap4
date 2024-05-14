@@ -6,7 +6,7 @@ const events = [
 ];
 
 exports.viewProfile = (req, res) => {
-  res.render('Perfil', { events });
+  res.render('Perfil', { events, logedIn: req.session.token ? true : false });
 };
 
 exports.editProfile = (req, res) => {

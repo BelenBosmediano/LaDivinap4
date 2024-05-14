@@ -6,7 +6,6 @@ html
     //bootstrap css
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css", rel="stylesheet" )
     //bootstrap js
-    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js")
     //template
     meta(charset="utf-8")
     title La Divina
@@ -26,4 +25,44 @@ html
     //  Customized Bootstrap Stylesheet 
     link(href='/stylesheets/style.min.css', rel='stylesheet')
   body
+    .container-fluid.p-0.nav-bar
+      nav.navbar.navbar-expand-lg.bg-none.navbar-dark.py-3
+        a.navbar-brand.px-lg-4.m-0(href="index.html")
+          h1.m-0.display-4.text-uppercase.text-white La Divina
+        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarCollapse")
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse.justify-content-between#navbarCollapse
+          .navbar-nav.ml-auto.p-4
+            a.nav-item.nav-link.active(href="/") Home 
+            a.nav-item.nav-link(href="/about") About us 
+            .nav-item.dropdown
+              ul.nav-link.dropdown-toggle(data-toggle="dropdown") Eventos 
+              .dropdown-menu.text-capitalize
+                li.dropdown-item
+                  a(href="/eventos") Eventos
+                  - if (logedIn)
+                    li.dropdown-item
+                      a(href="evento2/create/event-form") Crear evento
+                    li.dropdown-item
+                      a.dropdown-item(href="/evento2") Editar eventos
+            - if (logedIn)
+              a.nav-item.nav-link(href="/registro/logout") Logout
+            - else
+              a.nav-item.nav-link(href="/registro/login") Login  
     block content
+
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js")
+      //  JavaScript Libraries 
+    script(src="https://code.jquery.com/jquery-3.4.1.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js")
+    script(src='lib/easing/easing.min.js')
+    script(src='lib/waypoints/waypoints.min.js')
+    script(src='lib//owlcarousel/owl.carousel.min.js')
+    script(src='lib/tempusdominus/js/moment.min.js')
+    script(src='lib/tempusdominus/js/moment-timezone.min.js')
+    script(src='lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')
+    //  Contact Javascript File 
+    script(src="mail/jqBootstrapValidation.min.js")
+    script(src="mail/contact.js")
+    //  Template Javascript 
+    script(src="./js/main.js")

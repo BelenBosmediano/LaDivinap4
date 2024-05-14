@@ -19,7 +19,6 @@ const useListEvents = () => {
                 }
                 const response = await axios.get(`${apiOptions.server}api/events`);
                 setEvents(response.data);
-                console.log("🚀 ~ fetchEvents ~ response.data:", response.data)
             } catch (error) {
                 console.error(error);
             } finally {

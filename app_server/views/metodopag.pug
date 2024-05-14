@@ -1,26 +1,7 @@
 extends layout
 
 block content
-    //  Navbar Start 
-    .container-fluid.p-0.nav-bar
-        nav.navbar.navbar-expand-lg.bg-none.navbar-dark.py-3
-                a.navbar-brand.px-lg-4.m-0(href="index.html")
-                    h1.m-0.display-4.text-uppercase.text-white La Divina
-                button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarCollapse")
-                    span.navbar-toggler-icon
-                .collapse.navbar-collapse.justify-content-between#navbarCollapse
-                    .navbar-nav.ml-auto.p-4
-                        a.nav-item.nav-link(href="/") Home
-                        a.nav-item.nav-link(href="/about") About us
-                        .nav-item.dropdown
-                            a.nav-link.dropdown-toggle.active(href="#", data-toggle="dropdown") Eventos
-                            .dropdown-menu.text-capitalize
-                                a.dropdown-item(href="/eventos") Eventos
-                                a.dropdown-item.active(href="evento2/create/event-form") Crear evento
-                                a.dropdown-item(href="/evento2") Editar evento
-                        a.nav-item.nav-link(href="/registro/login") Login
-    //  Navbar End
-    //  Page Header Start 
+    
     .container-fluid.page-header.mb-5.position-relative.overlay-bottom
         .d-flex.flex-column.align-items-center.justify-content-center.pt-0.pt-lg-5(style="min-height: 400px")
             h1.display-4.mb-3.mt-0.mt-lg-5.text-white.text-uppercase Compra tus Entradas
